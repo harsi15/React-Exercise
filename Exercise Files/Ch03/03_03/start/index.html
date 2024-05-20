@@ -17,6 +17,21 @@
     <div id="root"></div>
 
     <script type="text/babel">
+      
+      const dishes =[
+        "Pizza",
+        "Pasta",
+        "Burger",
+        "Fries",
+        "Noodles"
+      ]
+      const prices = [
+        200,
+        100,
+        150
+      ]
+
+
       function Header(props) {
         return (
           <header>
@@ -31,6 +46,10 @@
               We serve the most {props.adjective}{" "}
               food around.
             </p>
+            <p>The dishes menu are:</p>
+            <ul>
+              {dishes.map((dish,i)=><li key={i}>{dish} {prices[i]}</li>)}
+            </ul>
           </section>
         );
       }
@@ -38,7 +57,7 @@
       function Footer(props) {
         return (
           <footer>
-            <p>Copyright {props.year}</p>
+            <p>Copyright age is : {props.year}</p>
           </footer>
         );
       }
@@ -46,10 +65,10 @@
       function App() {
         return (
           <div>
-            <Header name="Cindy" />
+            <Header name="Sims" />
             <Main adjective="amazing" />
             <Footer
-              year={new Date().getFullYear()}
+              year={22}
             />
           </div>
         );

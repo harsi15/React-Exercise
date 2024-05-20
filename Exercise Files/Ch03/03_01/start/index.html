@@ -17,18 +17,40 @@
     <div id="root"></div>
 
     <script type="text/babel">
-      let robot = "🤖";
-      let cowboy = "🤠";
-      let moon = "🌝";
-      let name = "React";
+      function FirstFunction(props){
+        console.log(props.name)
+        return(
+          <header>
+          <h1>First Function</h1>
+          <p>Here we are discussing first function having a dynamic value as {props.name}</p>
+          </header>
+        )
+      }
+      function SecondFunction(props){
+        return(
+          <div>
+            <p>Here we are in the second function lets see {props.city}</p>
+          </div>
+        )
+      }
+      function ThirdFunction(props){
+        return(
+          <div>
+            <p>Lets calculate the age of the person {props.name} and the age is {props.age + 3}</p>
+          </div>
+        )
+      }
+      function MainFunction(){
+        return(
+          <div>
+            <FirstFunction name="Sims"/>
+            <SecondFunction city="Pune"/>
+            <ThirdFunction name="Sims" age={20}/>
+          </div>
+        )
+      }
       ReactDOM.render(
-        <ul>
-          <li>{robot}</li>
-          <li>{cowboy}</li>
-          <li>{moon}</li>
-          <li>{name.toUpperCase()}</li>
-          <li>{name.length}</li>
-        </ul>,
+        <MainFunction/>,
         document.getElementById("root")
       );
     </script>

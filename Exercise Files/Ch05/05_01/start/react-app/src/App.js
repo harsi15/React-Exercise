@@ -1,21 +1,27 @@
 import "./App.css";
-import { useReducer } from "react";
+import {useRef} from "react";
 
 function App() {
-  const [checked, setChecked] = useReducer(
-    (checked) => !checked,
-    false
-  );
+  const txtTitle = useRef();
+  const txtColor = useRef();
+
+  const submit = (e)=>{
+    e.preventDefault();
+    const title = txtTitle.current.value;
+    const color = txtColor.current.value;
+    alert(`Color is : ${title} and the code is: ${color} `)
+    txtTitle.current.value = "";
+    txtColor.current.value = "";
+  }
+
   return (
     <div className="App">
-      <input
-        type="checkbox"
-        value={checked}
-        onChange={setChecked}
-      />
-      <label>
-        {checked ? "checked" : "not checked"}
-      </label>
+      <h1>Hello lets study useRef hook</h1>
+      <form onSubmit={submit}>
+        <input type ="textBox" ref={txtTitle} placeholder="Enter a color" ></input>
+        <input type ="color" ref={txtColor}></input>
+        <button>Submit</button>
+      </form>
     </div>
   );
 }
